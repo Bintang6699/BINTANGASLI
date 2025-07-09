@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoKoding - Komunitas Programmer Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .logo-text {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex items-center justify-center bg-white rounded-full h-12 w-12 mr-3">
+                    <img class="text-2xl font-bold text-blue-900" src="logo.png">
+                </div>
+                <h1 class="text-2xl font-bold logo-text">DoKoding</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="hover:text-blue-300 transition">Beranda</a></li>
+                    <li><a href="#about" class="hover:text-blue-300 transition">Tentang</a></li>
+                    <li><a href="#events" class="hover:text-blue-300 transition">Event</a></li>
+                    <li><a href="#members" class="hover:text-blue-300 transition">Anggota</a></li>
+                    <li><a href="#contact" class="hover:text-blue-300 transition">Kontak</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-4 pb-4">
+            <ul class="flex flex-col space-y-2">
+                <li><a href="#home" class="block py-2 hover:text-blue-300 transition">Beranda</a></li>
+                <li><a href="#about" class="block py-2 hover:text-blue-300 transition">Tentang</a></li>
+                <li><a href="#events" class="block py-2 hover:text-blue-300 transition">Event</a></li>
+                <li><a href="#members" class="block py-2 hover:text-blue-300 transition">Anggota</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-blue-300 transition">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero h-96 flex items-center relative">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="container mx-auto px-4 z-10 text-white">
+            <div class="flex items-center mb-6">
+                <div class="flex items-center justify-center bg-white rounded-full h-16 w-16 mr-4">
+                    <img class="text-3xl font-bold text-blue-900" src="logo.png">
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold logo-text">DoKoding</h1>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Komunitas Programmer Indonesia</h2>
+            <p class="text-xl mb-6">Belajar, berbagi, dan berkembang bersama dalam dunia pemrograman</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#join" class="bg-white hover:bg-gray-100 text-blue-900 font-bold py-3 px-6 rounded-lg transition inline-block">Gabung Sekarang</a>
+                <a href="#events" class="border-2 border-white hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition inline-block">Lihat Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">1.2K+</div>
+                    <div class="text-gray-600">Anggota</div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">50+</div>
+                    <div class="text-gray-600">Event</div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">10+</div>
+                    <div class="text-gray-600">Mentor</div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">5</div>
+                    <div class="text-gray-600">Tahun</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Komunitas DoKoding" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-900">Tentang DoKoding</h2>
+                    <p class="text-gray-700 mb-4">DoKoding adalah komunitas programmer Indonesia yang didirikan pada tahun 2020 dengan tujuan untuk menciptakan ekosistem belajar pemrograman yang kolaboratif dan inklusif.</p>
+                    <p class="text-gray-700 mb-4">Kami menyediakan platform bagi programmer dari berbagai level untuk saling berbagi pengetahuan, berkolaborasi dalam proyek, dan mengembangkan karir di bidang teknologi.</p>
+                    <p class="text-gray-700 mb-6">Dengan berbagai event rutin seperti coding bootcamp, hackathon, dan tech talk, kami berkomitmen untuk membantu anggota kami tumbuh sebagai profesional di industri teknologi.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-white p-4 rounded-lg text-center flex-1 shadow">
+                            <i class="fas fa-users text-2xl text-blue-700 mb-2"></i>
+                            <h4 class="font-bold mb-1">Komunitas</h4>
+                            <p class="text-sm text-gray-600">Bergabung dengan jaringan programmer</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center flex-1 shadow">
+                            <i class="fas fa-laptop-code text-2xl text-blue-700 mb-2"></i>
+                            <h4 class="font-bold mb-1">Belajar</h4>
+                            <p class="text-sm text-gray-600">Tingkatkan skill pemrograman</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center flex-1 shadow">
+                            <i class="fas fa-handshake text-2xl text-blue-700 mb-2"></i>
+                            <h4 class="font-bold mb-1">Kolaborasi</h4>
+                            <p class="text-sm text-gray-600">Bekerja sama dalam proyek nyata</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">Event Mendatang</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Ikuti berbagai event menarik yang kami selenggarakan untuk meningkatkan skill dan jaringan Anda</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Web Development Workshop" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-blue-800">Web Dev Workshop</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Gratis</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pelajari dasar-dasar pengembangan web modern dengan HTML, CSS, dan JavaScript.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>15 Juli 2025</span>
+                            <i class="far fa-clock ml-4 mr-2"></i>
+                            <span>13:00 - 17:00 WIB</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Online (Zoom)</span>
+                        </div>
+                        <button class="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Science Bootcamp" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-blue-800">Data Science Bootcamp</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Premium</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Bootcamp intensif selama 4 minggu untuk menguasai dasar-dasar data science dengan Python.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>1-30 Agustus 2025</span>
+                            <i class="far fa-clock ml-4 mr-2"></i>
+                            <span>19:00 - 21:00 WIB</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Hybrid (Online & Jakarta)</span>
+                        </div>
+                        <button class="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hackathon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-blue-800">Annual Hackathon</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Kompetisi</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Kompetisi coding 24 jam untuk menciptakan solusi inovatif dengan hadiah total Rp 50 juta.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>10-11 September 2025</span>
+                            <i class="far fa-clock ml-4 mr-2"></i>
+                            <span>24 Jam</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Jakarta Convention Center</span>
+                        </div>
+                        <button class="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white font-bold py-3 px-6 rounded-lg transition">
+                    Lihat Semua Event
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">Anggota Kami</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Bergabung dengan ribuan programmer dari berbagai latar belakang dan keahlian</p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Member 1 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Budi Santoso</h4>
+                    <p class="text-sm text-gray-600">Frontend Developer</p>
+                </div>
+                
+                <!-- Member 2 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Ani Wijaya</h4>
+                    <p class="text-sm text-gray-600">Data Scientist</p>
+                </div>
+                
+                <!-- Member 3 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Joko Prasetyo</h4>
+                    <p class="text-sm text-gray-600">Backend Engineer</p>
+                </div>
+                
+                <!-- Member 4 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Rina Dewi</h4>
+                    <p class="text-sm text-gray-600">UI/UX Designer</p>
+                </div>
+                
+                <!-- Member 5 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Agus Setiawan</h4>
+                    <p class="text-sm text-gray-600">DevOps Engineer</p>
+                </div>
+                
+                <!-- Member 6 -->
+                <div class="card-hover bg-white rounded-lg p-4 text-center shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Anggota" class="w-20 h-20 rounded-full mx-auto mb-3">
+                    <h4 class="font-bold text-blue-800">Dewi Lestari</h4>
+                    <p class="text-sm text-gray-600">Mobile Developer</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition">
+                    Lihat Semua Anggota
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="py-16 bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Bergabung dengan Komunitas DoKoding</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Dapatkan akses ke berbagai sumber belajar, event eksklusif, dan jaringan profesional</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="card-hover bg-blue-800 p-6 rounded-lg">
+                        <div class="text-4xl font-bold mb-4">Gratis</div>
+                        <h3 class="text-xl font-bold mb-4">Basic Member</h3>
+                        <ul class="space-y-3 text-left mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Akses event gratis
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Grup diskusi
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Newsletter bulanan
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times text-red-400 mr-2"></i>
+                                Event premium
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times text-red-400 mr-2"></i>
+                                Mentorship
+                            </li>
+                        </ul>
+                        <button class="w-full bg-white hover:bg-gray-200 text-blue-900 font-bold py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                    
+                    <div class="card-hover bg-yellow-500 p-6 rounded-lg transform scale-105 relative">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-bl rounded-tr">POPULER</div>
+                        <div class="text-4xl font-bold mb-4">Rp 150rb<span class="text-lg">/bulan</span></div>
+                        <h3 class="text-xl font-bold mb-4">Pro Member</h3>
+                        <ul class="space-y-3 text-left mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Semua benefit Basic
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Akses semua event premium
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Sesi mentorship
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Materi belajar eksklusif
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Sertifikat partisipasi
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                    
+                    <div class="card-hover bg-blue-800 p-6 rounded-lg">
+                        <div class="text-4xl font-bold mb-4">Rp 1,5jt<span class="text-lg">/tahun</span></div>
+                        <h3 class="text-xl font-bold mb-4">Premium Member</h3>
+                        <ul class="space-y-3 text-left mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Semua benefit Pro
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Diskon 20% event berbayar
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Prioritas pendaftaran
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Job board eksklusif
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-400 mr-2"></i>
+                                Konsultasi karir
+                            </li>
+                        </ul>
+                        <button class="w-full bg-white hover:bg-gray-200 text-blue-900 font-bold py-2 px-4 rounded transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="text-blue-200">Sudah memiliki akun? <a href="#" class="text-white hover:underline">Masuk disini</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Apa Kata Mereka</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card-hover bg-blue-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-blue-800">Andi Kurniawan</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Bergabung dengan DoKoding membuka banyak peluang untuk saya. Dari yang awalnya hanya tahu dasar pemrograman, sekarang sudah bekerja sebagai frontend developer di perusahaan ternama."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="card-hover bg-blue-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-blue-800">Dewi Sartika</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Komunitas yang sangat supportive. Mentor-mentornya berpengalaman dan selalu siap membantu. Saya berhasil menyelesaikan proyek pertama saya berkat bantuan dari anggota lain di DoKoding."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="card-hover bg-blue-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-blue-800">Rudi Hartono</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Event hackathon yang diadakan DoKoding memberikan pengalaman berharga. Tim saya berhasil memenangkan kompetisi dan sekarang sedang mengembangkan produk kami lebih lanjut."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-700 text-white p-8">
+                        <h2 class="text-2xl font-bold mb-6">Hubungi Kami</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Alamat</h4>
+                                    <p>Jl. Teknologi No. 123, Jakarta Selatan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3 text-blue-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>info@dokoding.id</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-blue-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Telepon</h4>
+                                    <p>(021) 1234 5678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-3 text-blue-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Jam Operasional</h4>
+                                    <p>Senin - Jumat: 09:00 - 17:00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-3">Ikuti Kami</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-white hover:text-blue-300 transition">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-blue-300 transition">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-blue-300 transition">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-blue-300 transition">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-blue-300 transition">
+                                    <i class="fab fa-youtube text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-blue-900">Kirim Pesan</h2>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Nama</label>
+                                <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-bold mb-2">Subjek</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-bold mb-2">Pesan</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded transition">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center bg-white rounded-full h-10 w-10 mr-3">
+                            <span class="text-xl font-bold text-blue-900">\[ \frac{1}{2} \]</span>
+                        </div>
+                        <h2 class="text-xl font-bold logo-text">DoKoding</h2>
+                    </div>
+                    <p class="mt-2 text-blue-300">Komunitas Programmer Indonesia</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#home" class="hover:text-blue-300 transition">Beranda</a>
+                    <a href="#about" class="hover:text-blue-300 transition">Tentang</a>
+                    <a href="#events" class="hover:text-blue-300 transition">Event</a>
+                    <a href="#members" class="hover:text-blue-300 transition">Anggota</a>
+                    <a href="#contact" class="hover:text-blue-300 transition">Kontak</a>
+                    <a href="#" class="hover:text-blue-300 transition">Blog</a>
+                    <a href="#" class="hover:text-blue-300 transition">FAQ</a>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-6 pt-6 text-center text-blue-300">
+                <p>&copy; 2025 DoKoding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-700 hover:bg-blue-800 text-white rounded-full p-3 shadow-lg hidden z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            e.target.reset();
+        });
+
+        // Event registration buttons
+        document.querySelectorAll('[href="#events"] button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Terima kasih! Anda akan diarahkan ke halaman pendaftaran event.');
+            });
+        });
+
+        // Membership registration buttons
+        document.querySelectorAll('[href="#join"] button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Terima kasih! Anda akan diarahkan ke halaman pendaftaran membership.');
+            });
+        });
+    </script>
+</body>
+</html>

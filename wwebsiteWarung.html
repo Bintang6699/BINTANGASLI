@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Pak Selamet - Masakan Rumah Tradisional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .food-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Logo Warung Pak Selamet" class="h-12 rounded-full mr-3">
+                <h1 class="text-2xl font-bold">Warung Pak Selamet</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="hover:text-yellow-300 transition">Beranda</a></li>
+                    <li><a href="#menu" class="hover:text-yellow-300 transition">Menu</a></li>
+                    <li><a href="#about" class="hover:text-yellow-300 transition">Tentang Kami</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-300 transition">Kontak</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 px-4 pb-4">
+            <ul class="flex flex-col space-y-2">
+                <li><a href="#home" class="block py-2 hover:text-yellow-300 transition">Beranda</a></li>
+                <li><a href="#menu" class="block py-2 hover:text-yellow-300 transition">Menu</a></li>
+                <li><a href="#about" class="block py-2 hover:text-yellow-300 transition">Tentang Kami</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-yellow-300 transition">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero h-96 flex items-center relative">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="container mx-auto px-4 z-10 text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang di Warung Pak Selamet</h2>
+            <p class="text-xl mb-6">Rasakan kelezatan masakan rumahan tradisional dengan cita rasa otentik</p>
+            <a href="#menu" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-3 px-6 rounded-lg transition inline-block">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="bg-yellow-50 py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-green-700 text-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Promo Spesial Hari Ini!</h3>
+                    <p class="text-yellow-200">Diskon 20% untuk semua menu dengan minimal pembelian Rp 50.000</p>
+                </div>
+                <button class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-2 px-6 rounded-lg transition whitespace-nowrap">
+                    Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Menu Kami</h2>
+            
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button data-category="all" class="menu-filter px-4 py-2 text-sm font-medium rounded-l-lg bg-green-700 text-white">
+                        Semua
+                    </button>
+                    <button data-category="makanan" class="menu-filter px-4 py-2 text-sm font-medium bg-green-600 text-white">
+                        Makanan
+                    </button>
+                    <button data-category="minuman" class="menu-filter px-4 py-2 text-sm font-medium bg-green-600 text-white">
+                        Minuman
+                    </button>
+                    <button data-category="snack" class="menu-filter px-4 py-2 text-sm font-medium rounded-r-lg bg-green-600 text-white">
+                        Snack
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Makanan 1 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="makanan">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Nasi Goreng Special" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Nasi Goreng Special</h3>
+                        <p class="text-gray-600 mb-4">Nasi goreng dengan telur, ayam, udang, dan sayuran segar.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 25.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Nasi Goreng Special" data-price="25000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Makanan 2 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="makanan">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soto Ayam" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Soto Ayam</h3>
+                        <p class="text-gray-600 mb-4">Soto ayam dengan bumbu rempah khas, telur, dan koya.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 20.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Soto Ayam" data-price="20000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Makanan 3 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="makanan">
+                    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Ayam Goreng" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Ayam Goreng Kremes</h3>
+                        <p class="text-gray-600 mb-4">Ayam goreng dengan kremes renyah dan sambal terasi.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 30.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Ayam Goreng Kremes" data-price="30000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Minuman 1 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="minuman">
+                    <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Es Teh Manis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Es Teh Manis</h3>
+                        <p class="text-gray-600 mb-4">Es teh dengan gula pasir pilihan.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 5.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Es Teh Manis" data-price="5000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Minuman 2 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="minuman">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Es Jeruk" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Es Jeruk Segar</h3>
+                        <p class="text-gray-600 mb-4">Es jeruk asli tanpa bahan pengawet.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 8.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Es Jeruk Segar" data-price="8000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Snack 1 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md" data-category="snack">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Tempe Goreng" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-green-800">Tempe Goreng</h3>
+                        <p class="text-gray-600 mb-4">Tempe goreng renyah dengan bumbu khas.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-700">Rp 7.000</span>
+                            <button class="add-to-cart bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" data-item="Tempe Goreng" data-price="7000">
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-green-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Warung Pak Selamet" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-green-800">Tentang Warung Pak Selamet</h2>
+                    <p class="text-gray-700 mb-4">Warung Pak Selamet didirikan pada tahun 1995 dengan tujuan menyajikan masakan rumahan tradisional dengan cita rasa otentik.</p>
+                    <p class="text-gray-700 mb-4">Kami menggunakan bahan-bahan segar dan bumbu pilihan yang diracik secara khusus untuk memberikan pengalaman makan yang tak terlupakan.</p>
+                    <p class="text-gray-700 mb-6">Dengan pengalaman lebih dari 25 tahun, kami berkomitmen untuk menjaga kualitas dan keaslian rasa setiap hidangan yang kami sajikan.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-green-100 p-4 rounded-lg text-center flex-1">
+                            <span class="text-3xl font-bold text-green-700 block">25+</span>
+                            <span class="text-gray-600">Tahun Pengalaman</span>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg text-center flex-1">
+                            <span class="text-3xl font-bold text-green-700 block">50+</span>
+                            <span class="text-gray-600">Menu Variatif</span>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg text-center flex-1">
+                            <span class="text-3xl font-bold text-green-700 block">100%</span>
+                            <span class="text-gray-600">Kepuasan Pelanggan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Apa Kata Pelanggan Kami</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-green-50 p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Pelanggan" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-green-800">Bu Siti</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Nasi gorengnya enak banget, rasanya seperti masakan rumah sendiri. Pelayanannya juga ramah dan cepat."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-green-50 p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Pelanggan" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-green-800">Pak Joko</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Soto ayamnya mantap, kuahnya gurih dan ayamnya empuk. Tempatnya bersih dan harganya terjangkau."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-green-50 p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Pelanggan" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-green-800">Mbak Rina</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Ayam goreng kremesnya renyah dan gurih. Sudah langganan sejak tahun 2000 dan tidak pernah kecewa."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Hubungi Kami</h2>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-xl font-bold mb-4">Informasi Kontak</h3>
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-map-marker-alt text-yellow-400 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Alamat</h4>
+                                <p>Jl. Raya Kebon Jeruk No. 123, Jakarta Barat</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-phone-alt text-yellow-400 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Telepon</h4>
+                                <p>(021) 1234567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-400 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p>info@warungpakselamet.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Jam Buka</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Senin - Jumat</span>
+                            <span>08:00 - 21:00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sabtu - Minggu</span>
+                            <span>09:00 - 22:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nama</label>
+                            <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Pesan</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 rounded transition w-full">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b p-4">
+                <h3 class="text-xl font-bold text-green-800">Keranjang Belanja</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="p-4">
+                <!-- Cart items will be added here dynamically -->
+                <p class="text-center text-gray-500 py-4">Keranjang belanja kosong</p>
+            </div>
+            <div class="border-t p-4">
+                <div class="flex justify-between mb-4">
+                    <span class="font-bold">Total:</span>
+                    <span id="cart-total" class="font-bold text-green-700">Rp 0</span>
+                </div>
+                <button id="checkout-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition w-full">
+                    Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button id="open-cart" class="bg-green-700 hover:bg-green-800 text-white rounded-full p-4 shadow-lg flex items-center justify-center">
+            <i class="fas fa-shopping-cart text-xl mr-2"></i>
+            <span id="cart-count" class="font-bold">0</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" alt="Logo Warung Pak Selamet" class="h-10 rounded-full mr-3">
+                        <h2 class="text-xl font-bold">Warung Pak Selamet</h2>
+                    </div>
+                    <p class="mt-2 text-green-200">Masakan Rumah Tradisional Sejak 1995</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-green-200 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-green-200 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-green-200 hover:text-white transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-green-800 mt-6 pt-6 text-center text-green-300">
+                <p>&copy; 2023 Warung Pak Selamet. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toast-message">Item telah ditambahkan ke keranjang</span>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menu Filter
+        const filterButtons = document.querySelectorAll('.menu-filter');
+        const foodCards = document.querySelectorAll('.food-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-green-700');
+                    btn.classList.add('bg-green-600');
+                });
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-green-700');
+                
+                // Filter items
+                const category = button.dataset.category;
+                
+                foodCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Cart Functionality
+        let cart = [];
+        
+        // Open/Close Cart Modal
+        const openCartButton = document.getElementById('open-cart');
+        const closeCartButton = document.getElementById('close-cart');
+        const cartModal = document.getElementById('cart-modal');
+        
+        openCartButton.addEventListener('click', () => {
+            updateCartDisplay();
+            cartModal.classList.remove('hidden');
+        });
+        
+        closeCartButton.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to Cart
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.dataset.item;
+                const price = parseInt(button.dataset.price);
+                
+                // Check if item already in cart
+                const existingItem = cart.find(cartItem => cartItem.name === item);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name: item,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                showToast(`${item} telah ditambahkan ke keranjang`);
+            });
+        });
+        
+        // Update Cart Count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        
+        // Update Cart Display
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center text-gray-500 py-4">Keranjang belanja kosong</p>';
+                cartTotalElement.textContent = 'Rp 0';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                html += `
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div>
+                            <h4 class="font-bold">${item.name}</h4>
+                            <p class="text-gray-600">Rp ${item.price.toLocaleString('id-ID')} x ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-bold mr-4">Rp ${itemTotal.toLocaleString('id-ID')}</span>
+                            <button class="remove-item text-red-500 hover:text-red-700" data-index="${index}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = html;
+            cartTotalElement.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = parseInt(button.dataset.index);
+                    cart.splice(index, 1);
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+        }
+        
+        // Checkout Button
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                showToast('Keranjang belanja kosong', 'error');
+                return;
+            }
+            
+            // In a real app, you would send the cart data to your backend
+            alert('Terima kasih! Pesanan Anda telah diterima. Kami akan segera memprosesnya.');
+            cart = [];
+            updateCartDisplay();
+            updateCartCount();
+            cartModal.classList.add('hidden');
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real app, you would send the form data to your backend
+            alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.');
+            e.target.reset();
+        });
+        
+        // Show Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            // Set color based on type
+            if (type === 'error') {
+                toast.classList.remove('bg-green-600');
+                toast.classList.add('bg-red-600');
+            } else {
+                toast.classList.remove('bg-red-600');
+                toast.classList.add('bg-green-600');
+            }
+            
+            // Show toast
+            toast.classList.remove('hidden');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
